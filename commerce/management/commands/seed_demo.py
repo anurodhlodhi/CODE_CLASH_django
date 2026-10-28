@@ -2,6 +2,7 @@
 from datetime import timedelta
 
 from django.core.management.base import BaseCommand
+from django.contrib.auth import get_user_model
 from django.db import transaction
 from django.utils import timezone
 
@@ -62,6 +63,12 @@ class Command(BaseCommand):
         existing_coupons = 0
 
         now = timezone.now()
+
+        user_model = get_user_model()
+        for email, password in (("a@test.invalid", "password_a"), ("b@test.invalid", "password_b")):
+            if not user_model.objects.filter(username=email).exists():
+                user_model.objects.create_user(username=email, email=email, password=password)
+                self.stdout.write(f"Created demo customer: {email}")
 
         for values in DEMO_PRODUCTS:
             product, created = Product.objects.get_or_create(

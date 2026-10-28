@@ -1,0 +1,6 @@
+# Tested with Python 3.10.11. Install with: python -m pip install -r requirements.txt
+Django==5.2.17
+djangorestframework==3.18.1
+python-dotenv==1.2.4
+pytest==9.1.1
+pytest-django==4.14.0

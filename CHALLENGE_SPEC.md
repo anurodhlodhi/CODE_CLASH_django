@@ -1,6 +1,10 @@
 
 # FaultLine Django Challenge — Participant Specification
 
+## Local runtime and customer pages
+
+Python 3.10 is the baseline. Install `requirements.txt`, migrate, seed demo data, and use the commands in `README.md`. `/` and `/shop/` show the customer catalogue. The shop provides customer login, cart add/update/remove, coupon entry and shipping fields at checkout, order history and pending-order cancellation. Set a cart quantity to zero to remove the item. Forms use Django CSRF protection. Mock payment confirmation and refunds remain staff operations in `/admin/`; customers see payment status. The shop uses the same commerce services as the API and admin.
+
 ## 1. Objective
 
 FaultLine is a Django commerce application. Participants must investigate reported defects, reproduce failures, correct the implementation, and demonstrate that their fixes preserve the expected business behavior.
